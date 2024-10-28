@@ -59,11 +59,11 @@ const getAuthorbook = (author) => {
 const getReviewBook = (title) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const filteredReview = books.filter((book) => (
+      const filteredReview = books.find((book) => (
         book.title.toLowerCase().replace(/\s+/g, "") === title.toLowerCase()
       ));
 
-      if (filteredReview.review > 0) { 
+      if (filteredReview) { 
         resolve(filteredReview.review);
       }else{
         reject("There are no reviews")
